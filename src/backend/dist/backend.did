@@ -1,0 +1,79 @@
+type UserId = principal;
+type UpdateProfileInput = 
+ record {
+   budgetRange: opt BudgetRange;
+   companySize: opt CompanySize;
+   decisionMakers: opt vec text;
+   id: ProfileId;
+   industry: opt text;
+   name: opt text;
+   painPoints: opt vec text;
+   targetGeography: opt text;
+   useCase: opt text;
+ };
+type Timestamp = int;
+type PublicProfile = 
+ record {
+   budgetRange: opt BudgetRange;
+   companySize: opt CompanySize;
+   decisionMakers: vec text;
+   id: ProfileId;
+   industry: text;
+   name: text;
+   painPoints: vec text;
+   targetGeography: text;
+   useCase: text;
+ };
+type ProfileId = nat;
+type Profile = 
+ record {
+   budgetRange: opt BudgetRange;
+   companySize: opt CompanySize;
+   createdAt: Timestamp;
+   decisionMakers: vec text;
+   id: ProfileId;
+   industry: text;
+   name: text;
+   owner: UserId;
+   painPoints: vec text;
+   shareCode: opt text;
+   targetGeography: text;
+   updatedAt: Timestamp;
+   useCase: text;
+ };
+type CreateProfileInput = 
+ record {
+   budgetRange: opt BudgetRange;
+   companySize: opt CompanySize;
+   decisionMakers: vec text;
+   industry: text;
+   name: text;
+   painPoints: vec text;
+   targetGeography: text;
+   useCase: text;
+ };
+type CompanySize = 
+ variant {
+   enterprise;
+   midMarket;
+   smb;
+   startup;
+ };
+type BudgetRange = 
+ variant {
+   fiftyKTo200k;
+   lessThan10k;
+   moreThan200k;
+   tenKTo50k;
+ };
+service : {
+  calculateCompleteness: (id: ProfileId) -> (opt nat) query;
+  createProfile: (input: CreateProfileInput) -> (Profile);
+  deleteProfile: (id: ProfileId) -> (bool);
+  generateShareCode: (id: ProfileId) -> (opt text);
+  getProfile: (id: ProfileId) -> (opt Profile) query;
+  getPublicProfile: (shareCode: text) -> (opt PublicProfile) query;
+  getRefinementSuggestions: (id: ProfileId) -> (opt vec text) query;
+  listProfiles: () -> (vec Profile) query;
+  updateProfile: (input: UpdateProfileInput) -> (opt Profile);
+}

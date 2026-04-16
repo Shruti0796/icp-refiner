@@ -1,0 +1,48 @@
+// Version: 1.0.0
+type BudgetRange__915646890 =
+  {#fiftyKTo200k; #lessThan10k; #moreThan200k; #tenKTo50k};
+type CompanySize__185097023 = {#enterprise; #midMarket; #smb; #startup};
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type ProfileId__398539122 = ProfileId__718444104;
+type ProfileId__718444104 = Nat;
+type Profile__69024625 =
+  {
+    budgetRange : ?BudgetRange__915646890;
+    companySize : ?CompanySize__185097023;
+    createdAt : Timestamp__881810068;
+    decisionMakers : [Text];
+    id : ProfileId__398539122;
+    industry : Text;
+    name : Text;
+    owner : UserId__699551398;
+    painPoints : [Text];
+    shareCode : ?Text;
+    targetGeography : Text;
+    updatedAt : Timestamp__881810068;
+    useCase : Text
+  };
+type Timestamp__301639476 = Int;
+type Timestamp__881810068 = Timestamp__301639476;
+type UserId__158757552 = Principal;
+type UserId__699551398 = UserId__158757552;
+actor {
+  stable counter : {var nextProfileId : Nat};
+  stable profiles :
+    {
+      var root : Node__46230540<ProfileId__398539122, Profile__69024625>;
+      var size : Nat__490723111
+    };
+  stable shareIndex :
+    {
+      var root : Node__46230540<Text, ProfileId__398539122>;
+      var size : Nat__490723111
+    }
+};

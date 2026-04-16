@@ -1,0 +1,23 @@
+{
+  "overview": "A fully functional Ideal Customer Profile (ICP) Refiner app — create, analyze, and refine ICP definitions with a clean dashboard, completeness scoring, and persistent storage per authenticated user.",
+  "features": [
+    "Internet Identity login with persistent sessions",
+    "Create, edit, and delete ICP profiles",
+    "ICP completeness scoring and refinement suggestions",
+    "Dashboard with hero section and quick actions",
+    "Profiles list with full CRUD management",
+    "ICP detail view with analysis panel",
+    "Export profile as JSON and copy to clipboard",
+    "Responsive layout for desktop and mobile"
+  ],
+  "category": "productivity",
+  "tags": [
+    "icp",
+    "customer-profile",
+    "analysis",
+    "productivity",
+    "motoko",
+    "react"
+  ],
+  "last_updated": "2026-04-16T21:17:20.370Z"
+}
