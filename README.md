@@ -196,17 +196,6 @@ Install dependencies: `pip install pandas openai`
 
 ---
 
-## Sample Output
-
-| Name | Title | Company Size | Country | ICP Fit | Notes |
-|---|---|---|---|---|---|
-| Marcus Reid | Head of RevOps | 120 employees | United States | ✅ High | Exact title + size + geo match |
-| Priya Nair | Sales Director | 310 employees | United States | ✅ High | Senior sales leader in US SaaS |
-| Tom Eriksson | VP of Sales | 80 employees | Sweden | ⚠️ Medium | Right title + size, wrong geo |
-| Linda Park | Marketing Manager | 95 employees | United States | ❌ Low | Wrong function — not sales/RevOps |
-
----
-
 ## Impact
 
 Fixing ICP clarity first has a cascade effect across the entire outbound motion:
@@ -237,7 +226,5 @@ Fixing ICP clarity first has a cascade effect across the entire outbound motion:
 
 ---
 
-## Author
-
-**Shruti** — Built for the Myntmore AI Growth Operator challenge.  
+## Author  
 GitHub: [@Shruti0796](https://github.com/Shruti0796)
